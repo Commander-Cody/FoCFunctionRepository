@@ -101,8 +101,10 @@ def create_function_code(function_type, function):
     if function_name.startswith("."):
         function_name = function_type + function_name
     for param_id in function.params:
-        code += "---@param " + function.params[param_id][1] + "\n"
-        function_name = replace_param(function_name, param_id, function.params[param_id][0])
+        param_name = function.params[param_id][1]
+        param_info = function.params[param_id][0]
+        code += "---@param " + param_name + " " + param_info + "\n"
+        function_name = replace_param(function_name, param_id, param_name or param_info)
     code += "---@return\n"
     code += "--- " + function.description + "\n"
     code += "function " + function_name + "\n"

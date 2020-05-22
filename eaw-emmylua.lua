@@ -29,23 +29,23 @@ end
 function GetThreadID()
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Prints to _LogFile.txt. Notice the spelling mistake.
 function _OuputDebug(string)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Trigger a message popup window
 function _MessagePopup(string)
 end
 ---@public
----@param file name
----@param 
+---@param file name string
+---@param  string
 ---@return
 --- Print to X. (X can only be a file name, no path)
-function _CustomScriptMessage(string,string)
+function _CustomScriptMessage(file_name,string)
 end
 ---@public
 ---@return
@@ -53,7 +53,7 @@ end
 function _DebugBreak(?)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Prints to the AILog if it is enabled
 function _ScriptMessage(string)
@@ -64,8 +64,8 @@ end
 function _ScriptExit()
 end
 ---@public
----@param 
----@param 
+---@param  string
+---@param  string
 ---@return
 --- -
 function StringCompare(string,string)
@@ -91,13 +91,13 @@ end
 function Is_Campaign_Game()
 end
 ---@public
----@param 
+---@param  0
 ---@return
 --- (Un)Lock all player controls
 function Lock_Controls(0)
 end
 ---@public
----@param 
+---@param  0
 ---@return
 --- -
 function Suspend_AI(0)
@@ -113,61 +113,61 @@ end
 function Resume_Hyperspace_In()
 end
 ---@public
----@param 
+---@param  text string from dat file
 ---@return
 --- Displays the text entry as a droid advisor hint
 function Game_Message(text_string_from_dat_file)
 end
 ---@public
----@param 
----@param 
+---@param  text string
+---@param  bool
 ---@return
 --- For Y = true the objective is added under the heading "Battle Information", for Y = false it is added under the heading "Mission Objectives"
 function Add_Objective(text_string,bool)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- -
 function Remove_Planet_Highlight(string)
 end
 ---@public
----@param 
----@param 
+---@param  planet object
+---@param  string
 ---@return
 --- -
 function Add_Planet_Highlight(planet_object,string)
 end
 ---@public
----@param identifier
+---@param identifier string
 ---@return
 --- Removes the radar blip identified by X (see Add_Radar_Blip)
-function Remove_Radar_Blip(string)
+function Remove_Radar_Blip(identifier)
 end
 ---@public
----@param 
----@param identifier
+---@param  game object
+---@param identifier string
 ---@return
 --- Add a radar blip at X with identifier Y
-function Add_Radar_Blip(game_object,string)
+function Add_Radar_Blip(game_object,identifier)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  game object
+---@param  0
+---@param  string
 ---@return
 --- -
 function Hide_Sub_Object(game_object,0,string)
 end
 ---@public
----@param 
----@param 
+---@param  game object
+---@param  0
 ---@return
 --- -
 function Hide_Object(game_object,0)
 end
 ---@public
----@param 
+---@param  list of game object
 ---@return
 --- Assembles the passed objects into a fleet and returns the fleet object
 function Assemble_Fleet(list_of_game_object)
@@ -188,17 +188,17 @@ end
 function Is_Point_In_Nebula(?)
 end
 ---@public
----@param 
----@param 
+---@param  position
+---@param  position
 ---@return
 --- -
 function Are_On_Opposite_Sides_Of_Shield(position,position)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
+---@param  position
+---@param  position
+---@param  player
+---@param  bool
 ---@return
 --- -
 function Are_On_Opposite_Sides_Of_Shield(position,position,player,bool)
@@ -209,27 +209,27 @@ end
 function Activate_Retry_Dialog(?)
 end
 ---@public
----@param 
----@param 
+---@param  planet object
+---@param  number
 ---@return
 --- -
 function WaitForStarbase(planet_object,number)
 end
 ---@public
----@param 
----@param 
+---@param  planet object
+---@param  number
 ---@return
 --- -
 function WaitForGroundbase(planet_object,number)
 end
 ---@public
----@param 
+---@param  planet object
 ---@return
 --- -
 function GetNextGroundbaseType(planet_object)
 end
 ---@public
----@param 
+---@param  planet object
 ---@return
 --- -
 function GetNextStarbaseType(planet_object)
@@ -250,127 +250,127 @@ end
 function GetCurrentTime.Galactic_Time()
 end
 ---@public
----@param 
+---@param  faction name
 ---@return
 --- Returns a PlayerWrapper object
 function Find_Player(faction_name)
 end
 ---@public
----@param 
+---@param  type name
 ---@return
 --- Returns a GameObjectTypeWrapper object
 function Find_Object_Type(type_name)
 end
 ---@public
----@param 
+---@param  property flag
 ---@return
 --- Literally finds all objects of this type. That may include projectiles or other unexpected objects.
 function Find_All_Objects_Of_Type(property_flag)
 end
 ---@public
----@param 
----@param 
+---@param  property flag
+---@param  player
 ---@return
 --- -
 function Find_All_Objects_Of_Type(property_flag,player)
 end
 ---@public
----@param 
----@param 
+---@param  player
+---@param  category
 ---@return
 --- Categories can be piped together </br> (e.g. `"Frigate
 function Find_All_Objects_Of_Type(player,category)
 end
 ---@public
----@param type name
+---@param type name string
 ---@return
 --- Returns the first object of the given type. Possibly finds objects in reverse spawn order.
-function Find_First_Object(string)
+function Find_First_Object(type_name)
 end
 ---@public
----@param 
+---@param  game object or taskforce
 ---@return
 --- Returns (the most powerful?) unit attacking X if there is one. Has turned out somewhat unreliable in some cases.
 function FindDeadlyEnemy(game_object_or_taskforce)
 end
 ---@public
----@param type name
----@param hint
+---@param type name string
+---@param hint string
 ---@return
 --- Find an object with a given hint (as set in the map editor).
-function Find_Hint(string,string)
+function Find_Hint(type_name,hint)
 end
 ---@public
----@param hint
+---@param hint string
 ---@return
 --- -
-function Find_All_Objects_With_Hint(string)
+function Find_All_Objects_With_Hint(hint)
 end
 ---@public
----@param or taskforce or ai target?
----@param 
+---@param or taskforce or ai target? game object 
+---@param  type name
 ---@return
 --- Returns the nearest object to X that is of type Y. May return nil.
-function Find_Nearest(game_object_,type_name)
+function Find_Nearest(or_taskforce_or_ai_target?,type_name)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  game object
+---@param  player
+---@param  bool
 ---@return
 --- Returns the nearest unit to X belonging to Y if Z == true. Otherwise it will return the closest unit belonging to an enemy of Y.
 function Find_Nearest(game_object,player,bool)
 end
 ---@public
----@param 
----@param property flag or category mask
----@param 
----@param 
+---@param  game object
+---@param property flag or category mask string
+---@param  player
+---@param  bool
 ---@return
 --- -
-function Find_Nearest(game_object,string,player,bool)
+function Find_Nearest(game_object,property_flag_or_category_mask,player,bool)
 end
 ---@public
----@param 
----@param 
+---@param  game object or taskforce
+---@param  "Asteroid"/"Nebula"/"Ion_Storm"?
 ---@return
 --- -
 function Find_Nearest_Space_Field(game_object_or_taskforce,"Asteroid"/"Nebula"/"Ion_Storm"?)
 end
 ---@public
----@param 
----@param distance
+---@param  unit list
+---@param distance number
 ---@return
 --- Returns position and combined threat of units (from the unit list) in range of the position.
-function Find_Best_Local_Threat_Center(unit_list,number)
+function Find_Best_Local_Threat_Center(unit_list,distance)
 end
 ---@public
----@param or position?
----@param 
+---@param or position? game object 
+---@param  player
 ---@return
 --- Tactical only
-function Get_Most_Defended_Position(game_object_,player)
+function Get_Most_Defended_Position(or_position?,player)
 end
 ---@public
----@param 
----@param 
+---@param  game object
+---@param  game object or taskforce
 ---@return
 --- Tactical only. Returns a position outside the range of X
 function Project_By_Unit_Range(game_object,game_object_or_taskforce)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  player
+---@param  planet object
+---@param  planet object
 ---@return
 --- GC only. Only for AI players. Returns a list of planet objects.
 function Find_Path(player,planet_object,planet_object)
 end
 ---@public
----@param planet name
+---@param planet name string
 ---@return
 --- GC only
-function FindPlanet(string)
+function FindPlanet(planet_name)
 end
 ---@public
 ---@return
@@ -378,8 +378,8 @@ end
 function FindPlanet.Get_All_Planets()
 end
 ---@public
----@param 
----@param 
+---@param  string
+---@param  player
 ---@return
 --- Space only
 function Spawn_Special_Weapon(string,player)
@@ -390,30 +390,30 @@ end
 function Spawn_From_Reinforcement_Pool(X,Y,Z)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  game object type/type name
+---@param  position
+---@param  player
 ---@return
 --- This spawns X at Y without regard for collision. Be sure to use a position for Y, using a game object can often crash the script.
 function Create_Generic_Object(game_object_type/type_name,position,player)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  game object type
+---@param  position or game object
+---@param  player
 ---@return
 --- Spawns a unit respecting collision. If something blocks the spawn, the unit will be spawned as close to the spawn location as possible. Returns a list whose first entry is the spawned object.
 function Spawn_Unit(game_object_type,position_or_game_object,player)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param obey_zones
+---@param  type
+---@param  position or false
+---@param  player
+---@param  bool
+---@param obey_zones bool 
 ---@return
 --- If Y is false, the unit type is added to the reinforcements pool. Returns a CommandBlock.
-function Reinforce_Unit(type,position_or_false,player,bool,bool_)
+function Reinforce_Unit(type,position_or_false,player,bool,obey_zones)
 end
 ---@class UnitMovementBlockStatus
 local UnitMovementBlockStatus = {}
@@ -440,11 +440,11 @@ end
 function UserData.Is_Pool_Safe()
 end
 ---@public
----@param playerID
----@param 
+---@param playerID number
+---@param  number
 ---@return
 --- -
-function Start_Cinematic_Space_Retreat(number,number)
+function Start_Cinematic_Space_Retreat(playerID,number)
 end
 ---@public
 ---@return
@@ -457,94 +457,94 @@ end
 function Start_Cinematic_Mode()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function Set_Cinematic_Environment(bool)
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function Promote_To_Space_Cinematic_Layer(game_object)
 end
 ---@public
----@param object type
----@param playerID
----@param 
----@param angle
----@param phase
----@param 
----@param 
----@param 
----@param ?
+---@param object type string
+---@param playerID number
+---@param  position
+---@param angle number
+---@param phase number
+---@param  number
+---@param  number
+---@param  number
+---@param ? hint
 ---@return
 --- -
-function Create_Cinematic_Transport(string,number,position,number,number,number,number,number,hint)
+function Create_Cinematic_Transport(object_type,playerID,position,angle,phase,number,number,number,?)
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  number
 ---@return
 --- -
 function Cinematic_Zoom(number,number)
 end
 ---@public
----@param time
+---@param time number
 ---@return
 --- -
-function Transition_To_Tactical_Camera(number)
+function Transition_To_Tactical_Camera(time)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
+---@param  position
+---@param  time
+---@param  x coord
+---@param  y coord
+---@param  z coord
+---@param  0
+---@param  game object or 0
+---@param  0
+---@param  0
 ---@return
 --- Transition the camera position to a new position. Setting W to 1 switches Y,Z,U from cartesian coordinates to spherical coordinates (Y being the radius and U being the angle in the x-y-plane).
 function Transition_Cinematic_Camera_Key(position,time,x_coord,y_coord,z_coord,0,game_object_or_0,0,0)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
+---@param  position
+---@param  x coord
+---@param  y coord
+---@param  z coord
+---@param  0
+---@param  game object or 0
+---@param  0
+---@param  0
 ---@return
 --- Set a camera position
 function Set_Cinematic_Camera_Key(position,x_coord,y_coord,z_coord,0,game_object_or_0,0,0)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
+---@param  position
+---@param  time
+---@param  x coord
+---@param  y coord
+---@param  z coord
+---@param  0
+---@param  game object or 0
+---@param  0
+---@param  0
 ---@return
 --- Transition the camera target  (what the camera is pointing at) to a new position in Y seconds.
 function Transition_Cinematic_Target_Key(position,time,x_coord,y_coord,z_coord,0,game_object_or_0,0,0)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
+---@param  position
+---@param  x coord
+---@param  y coord
+---@param  z coord
+---@param  0
+---@param  game object or 0
+---@param  0
+---@param  0
 ---@return
 --- Set a target position for the camera to point at. If W is given, the camera will follow its movements. Without W the parameters R and S(?) won't work. If R is 1, the function uses W's coordinate system.
 function Set_Cinematic_Target_Key(position,x_coord,y_coord,z_coord,0,game_object_or_0,0,0)
@@ -555,16 +555,16 @@ end
 function End_Cinematic_Camera()
 end
 ---@public
----@param default is true
+---@param default is true bool
 ---@return
 --- -
-function Start_Cinematic_Camera(bool)
+function Start_Cinematic_Camera(default_is_true)
 end
 ---@public
----@param ?
+---@param ? game object or position
 ---@return
 --- -
-function Point_Camera_At(game_object_or_position)
+function Point_Camera_At(?)
 end
 ---@public
 ---@return
@@ -572,15 +572,15 @@ end
 function Rotate_Camera_To(?)
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  number
 ---@return
 --- -
 function Rotate_Camera_By(number,number)
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  number
 ---@return
 --- -
 function Zoom_Camera(number,number)
@@ -591,22 +591,22 @@ end
 function Camera_To_Follow(?)
 end
 ---@public
----@param ?
+---@param ? game object or position
 ---@return
 --- -
-function Scroll_Camera_To(game_object_or_position)
+function Scroll_Camera_To(?)
 end
 ---@public
----@param time
+---@param time number
 ---@return
 --- Fade screen into blackness
-function Fade_Screen_Out(number)
+function Fade_Screen_Out(time)
 end
 ---@public
----@param time
+---@param time number
 ---@return
 --- Fade screen back from blackness
-function Fade_Screen_In(number)
+function Fade_Screen_In(time)
 end
 ---@public
 ---@return
@@ -619,16 +619,16 @@ end
 function Fade_On()
 end
 ---@public
----@param time
+---@param time number
 ---@return
 --- Move black bars at the top and bottom out of the screen
-function Letter_Box_Out(number)
+function Letter_Box_Out(time)
 end
 ---@public
----@param time
+---@param time number
 ---@return
 --- Move black bars at the top and bottom into the screen
-function Letter_Box_In(number)
+function Letter_Box_In(time)
 end
 ---@public
 ---@return
@@ -646,7 +646,7 @@ end
 function Do_End_Cinematic_Cleanup()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function Weather_Audio_Pause(bool)
@@ -657,37 +657,37 @@ end
 function Master_Volume_Restore(?)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function Allow_Localized_SFX(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function SFXManager.Allow_Ambient_VO(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function SFXManager.Allow_Enemy_Sighted_VO(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function SFXManager.Allow_HUD_VO(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Notice the spelling mistake!
 function SFXManager.Allow_Unit_Reponse_VO(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function SFXManager.Allow_Localized_SFXEvents(bool)
@@ -713,7 +713,7 @@ end
 function Stop_All_Music()
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- -
 function Play_Music(string)
@@ -724,7 +724,7 @@ end
 function Stop_Bink_Movie()
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- -
 function Play_Bink_Movie(string)
@@ -745,22 +745,22 @@ end
 function Enable_Distance_Fog(?)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function Enable_Fog(bool)
 end
 ---@public
----@param effect
----@param 
----@param 
+---@param effect string
+---@param  position
+---@param  position
 ---@return
 --- -
-function Play_Lightning_Effect(string,position,position)
+function Play_Lightning_Effect(effect,position,position)
 end
 ---@public
----@param 
----@param 
+---@param  integer
+---@param  integer
 ---@return
 --- Returns random integer between X and Y (uses game time as seed)
 function GameRandom(integer, integer)
@@ -771,51 +771,51 @@ end
 function GameRandom.Get_Float()
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  number
 ---@return
 --- Returns random float between X and Y
 function GameRandom.Get_Float(number, number)
 end
 ---@public
----@param 
----@param 
+---@param  integer
+---@param  integer
 ---@return
 --- Returns random integer between X and Y (uses (probably) real time as seed)
 function GameRandom.Free_Random(integer, integer)
 end
 ---@public
----@param 
----@param 
+---@param  function name as string
+---@param  anything
 ---@return
 --- Starts the function X (more precisely, the function at _G[X]) in a new thread on the next frame with parameter Y and returns the thread ID (an integer). If Y is a table, its contents will be copied into a new list which is given to the function, the keys of the original table will be lost.
 function Create_Thread(function_name_as_string, anything)
 end
 ---@public
----@param 
----@param 
+---@param  function name as string
+---@param  anything
 ---@return
 --- Seems to be the same as Create_Thread
 function Thread(function_name_as_string, anything)
 end
 ---@public
----@param 
----@param 
+---@param  function name as string
+---@param  anything
 ---@return
 --- Seems to be the same as Create_Thread
 function Thread.Create(function_name_as_string, anything)
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- Stops the thread with ID X
-function Thread.Kill(thread_ID_)
+function Thread.Kill(integer)
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- -
-function Create_Thread.Kill(thread_ID_)
+function Create_Thread.Kill(integer)
 end
 ---@public
 ---@return
@@ -828,28 +828,28 @@ end
 function Create_Thread.Kill_All()
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- -
-function Thread.Is_Thread_Active(thread_ID_)
+function Thread.Is_Thread_Active(integer)
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- -
-function Create_Thread.Is_Thread_Active(thread_ID_)
+function Create_Thread.Is_Thread_Active(integer)
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- Returns the name of the main function ("main" or the function name passed to Create_Thread)
-function Thread.Get_Name(thread_ID_)
+function Thread.Get_Name(integer)
 end
 ---@public
----@param integer
+---@param integer thread ID 
 ---@return
 --- -
-function Create_Thread.Get_Name(thread_ID_)
+function Create_Thread.Get_Name(integer)
 end
 ---@public
 ---@return
@@ -862,39 +862,39 @@ end
 function Create_Thread.Get_Current_ID()
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Get the value set for X
 function GlobalValue.Get(string)
 end
 ---@public
----@param 
----@param 
+---@param  string
+---@param  value
 ---@return
 --- Set a value Y for identifier X. This value is accessible for all lua scripts and can be any variable type except userdata or thread. Can theoretically still be used to access userdata from other scripts, however the game throws an error in that case.
 function GlobalValue.Set(string,value)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Get the value set for X
 function ThreadValue(string)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Get the value set for X
 function ThreadValue.Get(string)
 end
 ---@public
----@param 
----@param 
+---@param  string
+---@param  value
 ---@return
 --- Set a value Y for identifier X. This value is specific to a thread as defined by Create_Thread.
 function ThreadValue.Set(string,value)
 end
 ---@public
----@param 
+---@param  string
 ---@return
 --- Sets value for identifier X to nil
 function ThreadValue.Reset(string)
@@ -907,8 +907,8 @@ end
 ---@class LuaDiscreteDistributionClass
 local LuaDiscreteDistributionClass = {}
 ---@public
----@param 
----@param 
+---@param  anything?
+---@param  number
 ---@return
 --- -
 function LuaDiscreteDistributionClass.Insert(anything?,number)
@@ -924,9 +924,9 @@ end
 function WeightedTypeList.Create()
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  player
+---@param  game object
+---@param  weighted type list
 ---@return
 --- returns a list
 function EvaluateTypeList(player,game_object,weighted_type_list)
@@ -934,36 +934,36 @@ end
 ---@class WeightedTypeListClass
 local WeightedTypeListClass = {}
 ---@public
----@param or categories?
----@param 
+---@param or categories? list of types
+---@param  list of numbers
 ---@return
 --- -
-function WeightedTypeListClass.Parse(list_of_types,list_of_numbers)
+function WeightedTypeListClass.Parse(or_categories?,list_of_numbers)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- Reveals the entire map for player X
 function FogOfWar.Reveal_All(player)
 end
 ---@public
----@param 
----@param 
----@param radius
+---@param  player
+---@param  position
+---@param radius number
 ---@return
 --- Reveals FoW at Y with radius Z for player X (in some vanilla source scripts a 4th parameter is used, but it doesn't seem to do anything). Returns a LuaFOWCellsClass object that can be used to undo the reveal.
-function FogOfWar.Reveal(player,position,number)
+function FogOfWar.Reveal(player,position,radius)
 end
 ---@public
----@param 
----@param 
----@param radius
+---@param  player
+---@param  position
+---@param radius number
 ---@return
 --- Reveals FoW at Y with radius Z for player X for about 5 seconds.
-function FogOfWar.Temporary_Reveal(player,position,number)
+function FogOfWar.Temporary_Reveal(player,position,radius)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- X = true makes units visible that should be hidden by the Fog of War.
 function FogOfWar.Disable_Rendering(bool)
@@ -976,34 +976,34 @@ local LuaFOWCellsClass = {}
 function LuaFOWCellsClass.Undo_Reveal()
 end
 ---@public
----@param 
----@param optional
+---@param  string
+---@param optional game object?
 ---@return
 --- Trigger a STORY_AI_NOTIFICATION event
-function Story_Event(string,game_object?)
+function Story_Event(string,optional)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
+---@param  player
+---@param  string
+---@param  game object
+---@param  bool
 ---@return
 --- Checks if corresponding reward type TRIGGER_AI has fired.
 function Check_Story_Flag(player,string,game_object,bool)
 end
 ---@public
----@param story_file_name.xml
+---@param story_file_name.xml string 
 ---@return
 --- Returns the story file as StoryPlotWrapper object. The parameter is case sensitive.
-function Get_Story_Plot(string_)
+function Get_Story_Plot(story_file_name.xml)
 end
 ---@class StoryPlotWrapper
 local StoryPlotWrapper = {}
 ---@public
----@param Event name
+---@param Event name string
 ---@return
 --- Returns the xml event as StoryEventWrapper object.
-function StoryPlotWrapper.Get_Event(string)
+function StoryPlotWrapper.Get_Event(Event_name)
 end
 ---@public
 ---@return
@@ -1023,30 +1023,30 @@ end
 ---@class StoryEventWrapper
 local StoryEventWrapper = {}
 ---@public
----@param reward type
+---@param reward type string
 ---@return
 --- -
-function StoryEventWrapper.Set_Reward_Type(string)
+function StoryEventWrapper.Set_Reward_Type(reward_type)
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  something that makes sense
 ---@return
 --- Sets Reward_Param(X+1) as Y (X is 0 for Reward_Param1).
 function StoryEventWrapper.Set_Reward_Parameter(number,something_that_makes_sense)
 end
 ---@public
----@param 
----@param 
+---@param  number
+---@param  something that makes sense
 ---@return
 --- Sets Event_Param(X+1) as Y (X is 0 for Event_Param1).
 function StoryEventWrapper.Set_Event_Parameter(number,something_that_makes_sense)
 end
 ---@public
----@param dialog file name
+---@param dialog file name string
 ---@return
 --- Sets the dialog file.
-function StoryEventWrapper.Set_Dialog(string)
+function StoryEventWrapper.Set_Dialog(dialog_file_name)
 end
 ---@public
 ---@return
@@ -1054,10 +1054,10 @@ end
 function StoryEventWrapper.Clear_Dialog_Text()
 end
 ---@public
----@param text identifier from dat file
+---@param text identifier from dat file string
 ---@return
 --- The text will be formatted with any additional parameters given.
-function StoryEventWrapper.Add_Dialog_Text(string,...)
+function StoryEventWrapper.Add_Dialog_Text(text_identifier_from_dat_file,...)
 end
 ---@class GameObjectWrapper
 local GameObjectWrapper = {}
@@ -1072,53 +1072,53 @@ end
 function GameObjectWrapper.Get_Planet_Location()
 end
 ---@public
----@param 
+---@param  Object or Position
 ---@return
 --- Moves the Object to X, returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Move_To(Object_or_Position)
 end
 ---@public
----@param 
----@param 
+---@param  Unit_List
+---@param  Object
 ---@return
 --- Moves Unit_List to Y in formation (does Object have to be contained in X?), returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Move_To(Unit_List, Object)
 end
 ---@public
----@param 
+---@param  Object/Position
 ---@return
 --- Returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Attack_Move(Object/Position)
 end
 ---@public
----@param 
----@param 
+---@param  Unit_List
+---@param  Object/Position
 ---@return
 --- Returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Attack_Move(Unit_List, Object/Position)
 end
 ---@public
----@param 
+---@param  Object
 ---@return
 --- Attack X, returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Attack_Target(Object)
 end
 ---@public
----@param 
----@param 
+---@param  Unit_List
+---@param  Object
 ---@return
 --- Attack Y with Unit_List (does the object have to be part of Unit_List?), returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Attack_Target(Unit_List, Object)
 end
 ---@public
----@param 
+---@param  PositionsObject
 ---@return
 --- Returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Guard_Target(PositionsObject)
 end
 ---@public
----@param 
----@param 
+---@param  Unit_List
+---@param  Object
 ---@return
 --- Guard Y with Unit_List (does the object have to be part of Unit_List?), returns a UnitMovementBlockStatus object
 function GameObjectWrapper.Guard_Target(Unit_List, Object)
@@ -1134,7 +1134,7 @@ end
 function GameObjectWrapper.Stop()
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- movability on or off
 function GameObjectWrapper.Suspend_Locomotor(true_/_false)
@@ -1145,25 +1145,25 @@ end
 function GameObjectWrapper.Get_Position()
 end
 ---@public
----@param 
----@param 
+---@param  Number of behavior
+---@param  true / false
 ---@return
 --- Enables specific behavior
 function GameObjectWrapper.Enable_Behavior(Number_of_behavior, true_/_false)
 end
 ---@public
----@param string
----@param 
+---@param string AbilityName 
+---@param  true / false
 ---@return
 --- Activates untargeted ability
-function GameObjectWrapper.Activate_Ability(AbilityName_, true_/_false)
+function GameObjectWrapper.Activate_Ability(string, true_/_false)
 end
 ---@public
----@param string
----@param 
+---@param string AbilityName 
+---@param  Object or location
 ---@return
 --- Activates targeted ability
-function GameObjectWrapper.Activate_Ability(AbilityName_, Object_or_location)
+function GameObjectWrapper.Activate_Ability(string, Object_or_location)
 end
 ---@public
 ---@return
@@ -1171,14 +1171,14 @@ end
 function GameObjectWrapper.Reset_Ability_Counter()
 end
 ---@public
----@param string
----@param 
+---@param string AbilityName 
+---@param  true / false
 ---@return
 --- -
-function GameObjectWrapper.Set_Single_Ability_Autofire(AbilityName_, true_/_false)
+function GameObjectWrapper.Set_Single_Ability_Autofire(string, true_/_false)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function GameObjectWrapper.Set_All_Abilities_Autofire(bool)
@@ -1189,44 +1189,44 @@ end
 function GameObjectWrapper.Is_Ability_Autofire()
 end
 ---@public
----@param string
+---@param string AbilityName 
 ---@return
 --- Returns true or false
-function GameObjectWrapper.Is_Ability_Active(AbilityName_)
+function GameObjectWrapper.Is_Ability_Active(string)
 end
 ---@public
----@param string
+---@param string AbilityName 
 ---@return
 --- Returns true or false
-function GameObjectWrapper.Is_Ability_Ready(AbilityName_)
+function GameObjectWrapper.Is_Ability_Ready(string)
 end
 ---@public
----@param string
+---@param string AbilityName 
 ---@return
 --- Returns true or false
-function GameObjectWrapper.Has_Ability(AbilityName_)
+function GameObjectWrapper.Has_Ability(string)
 end
 ---@public
----@param 
----@param optional
+---@param  string
+---@param optional number
 ---@return
 --- -
-function GameObjectWrapper.Force_Ability_Recharge(string, number)
+function GameObjectWrapper.Force_Ability_Recharge(string, optional)
 end
 ---@public
----@param ability
+---@param ability string
 ---@return
 --- -
-function GameObjectWrapper.Cancel_Ability(string)
+function GameObjectWrapper.Cancel_Ability(ability)
 end
 ---@public
----@param 
+---@param  Damage points
 ---@return
 --- -
 function GameObjectWrapper.Take_Damage(Damage_points, Y)
 end
 ---@public
----@param string
+---@param string Hardpoint
 ---@return
 --- -
 function -
@@ -1237,22 +1237,22 @@ end
 function GameObjectWrapper.Are_Engines_Online()
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function GameObjectWrapper.Override_Max_Speed(number)
 end
 ---@public
----@param number of frames
+---@param number of frames integer 
 ---@return
 --- Makes unit hyperspace into battle with delay by X frames (spawning many units with different delays at the same time seems spawns all units with the same delay anyway)
-function GameObjectWrapper.Cinematic_Hyperspace_In(integer_)
+function GameObjectWrapper.Cinematic_Hyperspace_In(number_of_frames)
 end
 ---@public
----@param default is true
+---@param default is true true/false 
 ---@return
 --- Makes unit leave into hyperspace. If X is true, the unit gets deleted from GC
-function GameObjectWrapper.Hyperspace_Away(true/false_)
+function GameObjectWrapper.Hyperspace_Away(default_is_true)
 end
 ---@public
 ---@return
@@ -1260,91 +1260,91 @@ end
 function GameObjectWrapper.Cancel_Hyperspace()
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Allow or prevent AI usage. In tactical battles this crashes the game if the unit has no active AI! When the factions AI changes, the unit is AI usable again.
 function GameObjectWrapper.Prevent_AI_Usage(true_/_false)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- (Un)Hides the object
 function GameObjectWrapper.Hide(true_/_false)
 end
 ---@public
----@param string
+---@param string Animation name 
 ---@return
 --- -
-function GameObjectWrapper.Play_Animation(Animation_name_, Y, Z)
+function GameObjectWrapper.Play_Animation(string, Y, Z)
 end
 ---@public
----@param 
----@return
---- -
-function -
-end
----@public
----@param 
+---@param  bool
 ---@return
 --- -
 function -
 end
 ---@public
----@param 
+---@param  integer
+---@return
+--- -
+function -
+end
+---@public
+---@param  PlayerObject
 ---@return
 --- Sets objects owner to new faction
 function GameObjectWrapper.Change_Owner(PlayerObject)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Shall object be displayed in Cinematic?
 function GameObjectWrapper.In_End_Cinematic(true_/_false)
 end
 ---@public
----@param 
+---@param  PositionsObject
 ---@return
 --- Teleport object to X
 function GameObjectWrapper.Teleport(PositionsObject)
 end
 ---@public
----@param 
+---@param  Object
 ---@return
 --- Teleport object to X and make it face the same way as X
 function GameObjectWrapper.Teleport_And_Face(Object)
 end
 ---@public
----@param 
+---@param  PositionsObject
 ---@return
 --- Make unit face toward X immediately
 function GameObjectWrapper.Face_Immediate(PositionsObject)
 end
 ---@public
----@param 
+---@param  PositionsObject
 ---@return
 --- Make unit turn to face toward X
 function GameObjectWrapper.Turn_To_Face(PositionsObject)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Prevent automatically firing at targets in range
 function GameObjectWrapper.Prevent_Opportunity_Fire(true_/_false)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Completely prevent a unit from firing
 function GameObjectWrapper.Prevent_All_Fire(true_/_false)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Stops object from taking any damage
 function GameObjectWrapper.Make_Invulnerable(true_/_false)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- Make the unit/fleet not trigger space tactical battles?
 function GameObjectWrapper.Set_Check_Contested_Space(true_/_false)
@@ -1390,7 +1390,7 @@ end
 function GameObjectWrapper.Is_Corrupted()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function GameObjectWrapper.Enable_Dynamic_LOD(bool)
@@ -1401,7 +1401,7 @@ end
 function GameObjectWrapper.Invade()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function GameObjectWrapper.Set_In_Limbo(bool)
@@ -1422,13 +1422,13 @@ end
 function GameObjectWrapper.Get_Current_Projectile_Type()
 end
 ---@public
----@param 
+---@param  game object or ai target
 ---@return
 --- Returns true if alternate weaponry of the unit is better against (?)  X
 function GameObjectWrapper.Should_Switch_Weapons(game_object_or_ai_target)
 end
 ---@public
----@param 
+---@param  game object or ai target
 ---@return
 --- -
 function GameObjectWrapper.Is_Good_Against(game_object_or_ai_target)
@@ -1464,13 +1464,13 @@ end
 function GameObjectWrapper.Can_Garrison_Fire()
 end
 ---@public
----@param 
+---@param  game object or ai target
 ---@return
 --- Can the unit be garrisoned in X?
 function GameObjectWrapper.Can_Garrison(game_object_or_ai_target)
 end
 ---@public
----@param 
+---@param  game object or ai target
 ---@return
 --- Garrison the unit in X
 function GameObjectWrapper.Garrison(game_object_or_ai_target)
@@ -1481,10 +1481,10 @@ end
 function GameObjectWrapper.Get_Attack_Target()
 end
 ---@public
----@param planet
+---@param planet game object 
 ---@return
 --- Can the unit land on planet X?
-function GameObjectWrapper.Can_Land_On_Planet(game_object_)
+function GameObjectWrapper.Can_Land_On_Planet(planet)
 end
 ---@public
 ---@return
@@ -1497,18 +1497,18 @@ end
 function GameObjectWrapper.Play_Cinematic_Engine_Flyby()
 end
 ---@public
----@param 
----@param optional
+---@param  string
+---@param optional number
 ---@return
 --- -
-function GameObjectWrapper.Stop_SFX_Event(string,number)
+function GameObjectWrapper.Stop_SFX_Event(string,optional)
 end
 ---@public
----@param 
----@param optional
+---@param  type or type name
+---@param optional string
 ---@return
 --- -
-function GameObjectWrapper.Attach_Particle_Effect(type_or_tstringpe_name,Y)
+function GameObjectWrapper.Attach_Particle_Effect(type_or_toptionalpe_name,Y)
 end
 ---@public
 ---@return
@@ -1516,34 +1516,34 @@ end
 function GameObjectWrapper.Has_Attack_Target()
 end
 ---@public
----@param emitter
----@param 
+---@param emitter string
+---@param  bool
 ---@return
 --- -
-function GameObjectWrapper.Show_Emitter(string, bool)
+function GameObjectWrapper.Show_Emitter(emitter, bool)
 end
 ---@public
----@param 
----@param optional
+---@param  bool
+---@param optional number
 ---@return
 --- Put a small arrow highlight on top of the object
-function GameObjectWrapper.Highlight_Small(bool, number)
+function GameObjectWrapper.Highlight_Small(bool, optional)
 end
 ---@public
----@param 
----@param optional
+---@param  bool
+---@param optional number
 ---@return
 --- Put an arrow highlight on top of the object
-function GameObjectWrapper.Highlight(bool, number)
+function GameObjectWrapper.Highlight(bool, optional)
 end
 ---@public
----@param 
+---@param  ai target location
 ---@return
 --- -
 function GameObjectWrapper.Explore_Area(ai_target_location)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function GameObjectWrapper.Disable_Capture(bool)
@@ -1554,14 +1554,14 @@ end
 function GameObjectWrapper.Force_Test_Space_Conflict()
 end
 ---@public
----@param 
----@param optional
+---@param  string
+---@param optional number
 ---@return
 --- -
-function GameObjectWrapper.Play_SFX_Event(string,number)
+function GameObjectWrapper.Play_SFX_Event(string,optional)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Keep a unit from dying (it can still be damaged)
 function GameObjectWrapper.Set_Cannot_Be_Killed(bool)
@@ -1572,7 +1572,7 @@ end
 function GameObjectWrapper.Get_Hint()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Turn spawn of garrison units on/off
 function GameObjectWrapper.Set_Garrison_Spawn(bool)
@@ -1588,13 +1588,13 @@ end
 function GameObjectWrapper.Is_Tactical_Superweapon_Ready()
 end
 ---@public
----@param bone name
+---@param bone name string
 ---@return
 --- -
-function GameObjectWrapper.Get_Bone_Position(string)
+function GameObjectWrapper.Get_Bone_Position(bone_name)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function GameObjectWrapper.Lock_Build_Pad_Contents(bool)
@@ -1605,7 +1605,7 @@ end
 function GameObjectWrapper.Is_Planet_Destroyed()
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- Use on planets. Returns the indigenous unit type of that planet affiliated with X
 function GameObjectWrapper.Get_Affiliated_Indigenous_Type(player)
@@ -1616,19 +1616,19 @@ end
 function GameObjectWrapper.Is_On_Diversion()
 end
 ---@public
----@param property flag
+---@param property flag string
 ---@return
 --- -
-function GameObjectWrapper.Has_Property(string)
+function GameObjectWrapper.Has_Property(property_flag)
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- Only use on fleets
 function GameObjectWrapper.Destroy_Contained_Objects(number)
 end
 ---@public
----@param 
+---@param  game object type
 ---@return
 --- Only use on fleets
 function GameObjectWrapper.Contains_Object_Type(game_object_type)
@@ -1644,17 +1644,17 @@ end
 function GameObjectWrapper.Has_Active_Orders()
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- (tactical only)
 function GameObjectWrapper.Get_AI_Power_Vs_Unit(game_object)
 end
 ---@public
----@param 
----@param optional
+---@param  object or position
+---@param optional number
 ---@return
 --- -
-function GameObjectWrapper.Divert(object_or_position,number)
+function GameObjectWrapper.Divert(object_or_position,optional)
 end
 ---@public
 ---@return
@@ -1667,7 +1667,7 @@ end
 function GameObjectWrapper.Mark_Parent_Mode_Object_For_Death()
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function GameObjectWrapper.Set_Importance(number)
@@ -1678,18 +1678,18 @@ end
 function GameObjectWrapper.Service_Wrapper()
 end
 ---@public
----@param 
+---@param  function
 ---@return
 --- -
 function GameObjectWrapper.Cancel_Event_Object_In_Range(function)
 end
 ---@public
----@param 
----@param distance
----@param optional
+---@param  function
+---@param distance number
+---@param optional player
 ---@return
 --- Calls X(self, trigger_object) continually for each trigger_object affiliated with Z in range
-function GameObjectWrapper.Event_Object_In_Range(function,number,player)
+function GameObjectWrapper.Event_Object_In_Range(function,distance,optional)
 end
 ---@public
 ---@return
@@ -1717,7 +1717,7 @@ end
 function GameObjectWrapper.Get_Build_Pad_Contents()
 end
 ---@public
----@param 
+---@param  position
 ---@return
 --- Returns a number
 function GameObjectWrapper.Get_Distance(position)
@@ -1733,11 +1733,11 @@ end
 function GameObjectWrapper.Contains_Hero()
 end
 ---@public
----@param target
----@param user
+---@param target game object
+---@param user player
 ---@return
 --- Use on space station apparently
-function GameObjectWrapper.Fire_Special_Weapon(game_object,player)
+function GameObjectWrapper.Fire_Special_Weapon(target,user)
 end
 ---@public
 ---@return
@@ -1750,19 +1750,19 @@ end
 function GameObjectWrapper.Get_Time_Till_Dead()
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function GameObjectWrapper.Set_Targeting_Stickiness_Time_Threshold(number)
 end
 ---@public
----@param targeting priority set
+---@param targeting priority set string
 ---@return
 --- -
-function GameObjectWrapper.Set_Targeting_Priorities(string)
+function GameObjectWrapper.Set_Targeting_Priorities(targeting_priority_set)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Obeject needs UNIT_AI behavior
 function GameObjectWrapper.Set_Prefer_Ground_Over_Space(bool)
@@ -1773,10 +1773,10 @@ end
 function GameObjectWrapper.Get_Game_Scoring_Type()
 end
 ---@public
----@param category name
+---@param category name string
 ---@return
 --- Can use pipe to concatenate categories
-function GameObjectWrapper.Is_Category(string)
+function GameObjectWrapper.Is_Category(category_name)
 end
 ---@public
 ---@return
@@ -1809,11 +1809,11 @@ end
 function GameObjectWrapper.Release()
 end
 ---@public
----@param 
----@param optional)
+---@param  type or type name
+---@param optional) bool
 ---@return
 --- Use on buildpads and MDUs
-function GameObjectWrapper.Build(type_or_type_name,bool)
+function GameObjectWrapper.Build(type_or_type_name,optional))
 end
 ---@class GameObjectTypeWrapper
 local GameObjectTypeWrapper = {}
@@ -1848,19 +1848,19 @@ end
 function GameObjectTypeWrapper.Get_Base_Level()
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- -
 function GameObjectTypeWrapper.Is_Affiliated_With(player)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- -
 function GameObjectTypeWrapper.Is_Build_Locked(player)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- -
 function GameObjectTypeWrapper.Is_Obsolete(player)
@@ -1903,13 +1903,13 @@ end
 ---@class PlayerWrapper
 local PlayerWrapper = {}
 ---@public
----@param 
+---@param  "space" or "ground"
 ---@return
 --- Enables Advisor Hints
 function PlayerWrapper.Enable_Advisor_Hints("space"_or_"ground", Y)
 end
 ---@public
----@param 
+---@param  true / false
 ---@return
 --- -
 function -
@@ -1925,7 +1925,7 @@ end
 function PlayerWrapper.Get_Enemy()
 end
 ---@public
----@param 
+---@param  Object
 ---@return
 --- Forces player to select object
 function PlayerWrapper.Select_Object(Object)
@@ -1966,19 +1966,19 @@ end
 function PlayerWrapper.Give_Random_Sliceable_Tech()
 end
 ---@public
----@param integer/float?
+---@param integer/float? amount 
 ---@return
 --- -
-function PlayerWrapper.Give_Money(amount_)
+function PlayerWrapper.Give_Money(integer/float?)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- Gets reset with any game mode changes, in particular at the end of every tactical battle!
 function PlayerWrapper.Make_Ally(player)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- Gets reset with any game mode changes, in particular at the end of every tactical battle!
 function PlayerWrapper.Make_Enemy(player)
@@ -1999,25 +1999,25 @@ end
 function PlayerWrapper.Get_Clan_ID()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function PlayerWrapper.Remove_Orbital_Bombardment(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function PlayerWrapper.Disable_Orbital_Bombardment(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function PlayerWrapper.Set_Sabotage_Tutorial(bool)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function PlayerWrapper.Set_Black_Market_Tutorial(bool)
@@ -2028,7 +2028,7 @@ end
 function PlayerWrapper.Get_Difficulty()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- X = false disables bombing run for the given faction in ground tactical, X = true enables it
 function PlayerWrapper.Disable_Bombing_Run(bool)
@@ -2044,7 +2044,7 @@ end
 function PlayerWrapper.Is_Enemy()
 end
 ---@public
----@param 
+---@param  GameObjectTypeWrapper
 ---@return
 --- -
 function PlayerWrapper.Unlock_Tech(GameObjectTypeWrapper)
@@ -2060,101 +2060,101 @@ end
 function PlayerWrapper.Get_Credits()
 end
 ---@public
----@param optional?
+---@param optional? Number 
 ---@return
 --- For AI player (with galactic AI) only. Releases credits for spending in (land only?) mode.
-function PlayerWrapper.Release_Credits_For_Tactical(Number_)
+function PlayerWrapper.Release_Credits_For_Tactical(optional?)
 end
 ---@public
----@param 
+---@param  Number
 ---@return
 --- -
 function PlayerWrapper.Set_Tech_Level(Number)
 end
 ---@public
----@param perception
+---@param perception string
 ---@return
 --- For tactical battle. Evaluates the perception at GC level.
-function Evaluate_In_Galactic_Context(string)
+function Evaluate_In_Galactic_Context(perception)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
+---@param  player
+---@param  list
+---@param  number
+---@param  ?
 ---@return
 --- -
 function Apply_Markup(player,list,number,?)
 end
 ---@public
----@param 
+---@param  player
 ---@return
 --- -
 function Purge_Goals(player)
 end
 ---@public
----@param 
----@param goal(set?)
----@param 
----@param 
----@param 
+---@param  player
+---@param goal(set?) string
+---@param  ai target
+---@param  number
+---@param  number
 ---@return
 --- -
-function GiveDesireBonus(player,string,ai_target,number,number)
+function GiveDesireBonus(player,goal(set?),ai_target,number,number)
 end
 ---@public
----@param perception
----@param 
----@param 
+---@param perception string
+---@param  player
+---@param  game object/ai target
 ---@return
 --- Evaluates a perception and returns the result. Y and Z are needed if and only if the perception uses Variable_Self and Variable_Target, respectively.
-function EvaluatePerception(string,player,game_object/ai_target)
+function EvaluatePerception(perception,player,game_object/ai_target)
 end
 ---@public
----@param 
----@param 
----@param 
+---@param  player
+---@param  game object/ai target
+---@param  taskforce
 ---@return
 --- Deprecated but may still work as intended
 function _FindStageArea(player,game_object/ai_target,taskforce)
 end
 ---@public
----@param 
----@param name?
----@param 
+---@param  player
+---@param name? game object type 
+---@param  planet/ ai target
 ---@return
 --- Deprecated but may still work as intended
-function _ProduceObject(player,game_object_type_,planet/_ai_target)
+function _ProduceObject(player,name?,planet/_ai_target)
 end
 ---@public
----@param 
----@param 
----@param 
----@param probability
----@param range
+---@param  taskforce
+---@param  perception
+---@param  goal application flag
+---@param probability number
+---@param range number
 ---@return
 --- Find a target for a taskforce. Tries to find the one that the perception returns the highest value on.
-function FindTarget(taskforce,perception,goal_application_flag,number,number)
+function FindTarget(taskforce,perception,goal_application_flag,probability,range)
 end
 ---@public
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
----@param 
+---@param  player
+---@param  perception
+---@param  goal application
+---@param  reachability
+---@param  probability
+---@param  ai target
+---@param  range
 ---@return
 --- Find a target for an aiplayer. Tries to find the one that the perception returns the highest value on.
 function FindTarget.Reachable_Target(player,perception,goal_application,reachability,probability,ai_target,range)
 end
 ---@public
----@param 
----@param 
----@param perception?
+---@param  taskforce
+---@param  list of game objects/ai targets
+---@param perception? string
 ---@return
 --- -
-function FindTarget.Best_Of(taskforce,list_of_game_objects/ai_targets,string)
+function FindTarget.Best_Of(taskforce,list_of_game_objects/ai_targets,perception?)
 end
 ---@class AITargetLocationWrapper
 local AITargetLocationWrapper = {}
@@ -2164,13 +2164,13 @@ local AITargetLocationWrapper = {}
 function AITargetLocationWrapper.Get_Game_Object()
 end
 ---@public
----@param 
+---@param  position
 ---@return
 --- -
 function AITargetLocationWrapper.Get_Distance(position)
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function FreeStore.Is_Object_On_Free_Store(game_object)
@@ -2181,20 +2181,20 @@ end
 function FreeStore.Get_Object_Count()
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- GC only(?)
 function FreeStore.Is_Unit_Safe(game_object)
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- GC only(?)
 function FreeStore.Is_Unit_In_Transit(game_object)
 end
 ---@public
----@param 
----@param 
+---@param  game object
+---@param  planet
 ---@return
 --- GC only(?)
 function FreeStore.Move_Object(game_object,planet)
@@ -2207,7 +2207,7 @@ local TaskForceClass = {}
 function TaskForceClass.Get_Goal_Type_Name()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- -
 function TaskForceClass.Test_Target_Contrast(bool)
@@ -2243,7 +2243,7 @@ end
 function TaskForceClass.Add_Opportunity_Fire_Event_Subscription()
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Sets plan to successful (true) or failed (false)
 function TaskForceClass.Set_Plan_Result(bool)
@@ -2274,7 +2274,7 @@ end
 function TaskForceClass.Collect_All_Free_Units()
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function TaskForceClass.Release_Unit(game_object)
@@ -2290,7 +2290,7 @@ end
 function TaskForceClass.Release_Forces(X)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- (Dis)allow hardcoded AI systems to terminate the goal (and plan)
 function TaskForceClass.Set_As_Goal_System_Removable(bool)
@@ -2301,11 +2301,11 @@ end
 function TaskForceClass.Get_Force_Count()
 end
 ---@public
----@param optional
----@param optional
+---@param optional stage
+---@param optional bool
 ---@return
 --- Assemble the taskforce a the given stage by building units or collecting them from the freestore
-function TaskForceClass.Produce_Force(stage,bool)
+function TaskForceClass.Produce_Force(optional,optional)
 end
 ---@public
 ---@return
@@ -2313,16 +2313,16 @@ end
 function TaskForceClass.Form_Units()
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- Adds a unit to the taskforce
 function TaskForceClass.Add_Force(game_object)
 end
 ---@public
----@param index
+---@param index number
 ---@return
 --- -
-function TaskForceClass.Get_Type_Of_Unit(number)
+function TaskForceClass.Get_Type_Of_Unit(index)
 end
 ---@public
 ---@return
@@ -2330,13 +2330,13 @@ end
 function TaskForceClass.Leave_Garrison()
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function TaskForceClass.Can_Garrison(game_object)
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function TaskForceClass.Garrison(game_object)
@@ -2347,69 +2347,69 @@ end
 function TaskForceClass.Set_All_Abilities_Autofire()
 end
 ---@public
----@param ability name
----@param 
+---@param ability name string
+---@param  bool
 ---@return
 --- -
-function TaskForceClass.Set_Single_Ability_Autofire(string,bool)
+function TaskForceClass.Set_Single_Ability_Autofire(ability_name,bool)
 end
 ---@public
----@param 
+---@param  game object
 ---@return
 --- -
 function TaskForceClass.Get_AI_Power_Vs_Unit(game_object)
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function TaskForceClass.Set_Targeting_Stickiness_Time_Threshold(number)
 end
 ---@public
----@param targeting priority set
+---@param targeting priority set string
 ---@return
 --- -
-function TaskForceClass.Set_Targeting_Priorities(string)
+function TaskForceClass.Set_Targeting_Priorities(targeting_priority_set)
 end
 ---@public
----@param 
----@param threat)(optional
----@param space fields)(optional
+---@param  game object/position
+---@param threat)(optional number
+---@param space fields)(optional string
 ---@return
 --- Tactical only
-function TaskForceClass.Move_To(game_object/position,number,string)
+function TaskForceClass.Move_To(game_object/position,threat)(optional,space_fields)(optional)
 end
 ---@public
----@param 
----@param threat)(optional
----@param space fields)(optional
+---@param  game object/position
+---@param threat)(optional number
+---@param space fields)(optional string
 ---@return
 --- Tactical only
-function TaskForceClass.Attack_Move(game_object/position,number,string(?))
+function TaskForceClass.Attack_Move(game_object/position,threat)(optional,space_fields)(optional(?))
 end
 ---@public
----@param 
----@param threat)(optional
----@param space fields)(optional
+---@param  game object/taskforce
+---@param threat)(optional number
+---@param space fields)(optional string
 ---@return
 --- Tactical only
-function TaskForceClass.Guard_Target(game_object/taskforce,number,string(?))
+function TaskForceClass.Guard_Target(game_object/taskforce,threat)(optional,space_fields)(optional(?))
 end
 ---@public
----@param 
----@param threat)(optional
----@param space fields)(optional
+---@param  game object
+---@param threat)(optional number
+---@param space fields)(optional string
 ---@return
 --- Tactical only
-function TaskForceClass.Attack_Target(game_object,number,string)
+function TaskForceClass.Attack_Target(game_object,threat)(optional,space_fields)(optional)
 end
 ---@public
----@param 
----@param hardpoint type
----@param threat?)(optional?
+---@param  game object
+---@param hardpoint type string 
+---@param threat?)(optional? number 
 ---@return
 --- Tactical only
-function TaskForceClass.Attack_Target(game_object,string_,number_)
+function TaskForceClass.Attack_Target(game_object,hardpoint_type,threat?)(optional?)
 end
 ---@public
 ---@return
@@ -2427,85 +2427,85 @@ end
 function TaskForceClass.Build_All()
 end
 ---@public
----@param 
----@param optional
+---@param  position
+---@param optional number
 ---@return
 --- Tactical only
-function TaskForceClass.Reinforce(position,number)
+function TaskForceClass.Reinforce(position,optional)
 end
 ---@public
----@param 
----@param bac
----@param 
----@param 
----@param 
+---@param  position
+---@param bac string
+---@param  number>0
+---@param  number
+---@param  bool?
 ---@return
 --- Tactical only (not used)
-function TaskForceClass.Prepare_Ambush(position,string,number>0,number,bool??)
+function TaskForceClass.Prepare_Ambush(position,bac,number>0,number,bool??)
 end
 ---@public
----@param 
----@param optional
+---@param  string
+---@param optional ?
 ---@return
 --- Tactical only
-function TaskForceClass.Find_Closest_Enemy(string,?)
+function TaskForceClass.Find_Closest_Enemy(string,optional)
 end
 ---@public
----@param 
+---@param  bool
 ---@return
 --- Tactical only
 function TaskForceClass.Enable_Attack_Positioning(bool)
 end
 ---@public
----@param 
+---@param  ai target location
 ---@return
 --- Tactical only
 function TaskForceClass.Explore_Area(ai_target_location)
 end
 ---@public
----@param 
+---@param  position
 ---@return
 --- Tactical only
 function TaskForceClass.Get_Distance(position)
 end
 ---@public
----@param 
----@param 
+---@param  string
+---@param  ai target/game object
 ---@return
 --- Tactical only
 function TaskForceClass.Fire_Special_Weapon(string,ai_target/game_object)
 end
 ---@public
----@param 
----@param build pad
+---@param  string
+---@param build pad game object
 ---@return
 --- Tactical only
-function TaskForceClass.Build(string,game_object)
+function TaskForceClass.Build(string,build_pad)
 end
 ---@public
----@param ability name
----@param 
+---@param ability name string
+---@param  bool
 ---@return
 --- Tactical only
-function TaskForceClass.Activate_Ability(string,bool)
+function TaskForceClass.Activate_Ability(ability_name,bool)
 end
 ---@public
----@param 
+---@param  position
 ---@return
 --- Land only
 function TaskForceClass.Fire_Orbital_Bombardment(position)
 end
 ---@public
----@param 
+---@param  ai target or game object
 ---@return
 --- Land only
 function TaskForceClass.Bombing_Run(ai_target_or_game_object)
 end
 ---@public
----@param planet
+---@param planet game object
 ---@return
 --- GC only
-function TaskForceClass.Move_To(game_object)
+function TaskForceClass.Move_To(planet)
 end
 ---@public
 ---@return
@@ -2513,10 +2513,10 @@ end
 function TaskForceClass.Activate_Ability()
 end
 ---@public
----@param planet
+---@param planet game object
 ---@return
 --- GC only
-function TaskForceClass.Raid(game_object)
+function TaskForceClass.Raid(planet)
 end
 ---@public
 ---@return
@@ -2524,11 +2524,11 @@ end
 function TaskForceClass.Is_Raid_Capable()
 end
 ---@public
----@param planet
----@param 
+---@param planet game object
+---@param  number
 ---@return
 --- GC only
-function TaskForceClass.Refit_To_Definition(game_object,number)
+function TaskForceClass.Refit_To_Definition(planet,number)
 end
 ---@public
 ---@return
@@ -2551,10 +2551,10 @@ end
 function TaskForceClass.Force_Test_Space_Conflict()
 end
 ---@public
----@param goal category
+---@param goal category string
 ---@return
 --- -
-function Budget.Flush_Category(string)
+function Budget.Flush_Category(goal_category)
 end
 ---@public
 ---@return
@@ -2567,33 +2567,33 @@ end
 function Budget.Flush_Unallocated_Resources()
 end
 ---@public
----@param 
----@param 
+---@param  number>0
+---@param  string
 ---@return
 --- -
 function Budget.Take_Resources_From_Goal(number>0,string)
 end
 ---@public
----@param 
----@param 
+---@param  number>0
+---@param  string
 ---@return
 --- -
 function Budget.Give_Resources_To_Goal(number>0,string)
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function Budget.Wait_For_Unallocated_Resources(number)
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function Budget.Wait_For_Spendable_Resources(number)
 end
 ---@public
----@param 
+---@param  number
 ---@return
 --- -
 function Budget.Allocate_Resources(number)
